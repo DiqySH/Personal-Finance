@@ -1,14 +1,19 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Young_Serif } from "next/font/google";
 import "./globals.css";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import AppSidebar from "@/components/AppSidebar";
+import { UserProvider } from "@/context/user";
+import AuthStateChangeProvider from "@/context/auth";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const bricolageGrotesque = Bricolage_Grotesque({
+  variable: "--font-bricolage-grotesque",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const youngSerif = Young_Serif({
+  variable: "--font-young-serif",
   subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata = {
@@ -20,9 +25,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${youngSerif.variable} ${bricolageGrotesque.variable} antialiased flex font-bricolage-grotesque bg-[#E4E0F3]`}
       >
-        {children}
+        <UserProvider>
+          <AuthStateChangeProvider>
+            <AppSidebar />
+            {children}
+          </AuthStateChangeProvider>
+        </UserProvider>
       </body>
     </html>
   );
