@@ -27,7 +27,7 @@ const RecurringBillsCard = () => {
           Recurring Bills
         </p>
         <Link
-          href={"/pots"}
+          href={"/recurring-bills"}
           className="text-[14px] flex gap-3"
           style={{
             color: "rgba(0, 0, 0, 0.6)",

@@ -1,5 +1,4 @@
 "use client";
-import { useWindowSize } from "@uidotdev/usehooks";
 import BudgetsCard from "./overviewComponents/BudgetsCard";
 import CurrentBalance from "./overviewComponents/CurrentBalance";
 import Expenses from "./overviewComponents/Expenses";
@@ -7,7 +6,7 @@ import Income from "./overviewComponents/Income";
 import PotsCard from "./overviewComponents/PotsCard";
 import RecurringBillsCard from "./overviewComponents/RecurringBillsCard";
 import TransactionsCard from "./overviewComponents/TransactionsCard";
-import { useEffect, useState } from "react";
+import withProtected from "@/hoc/withProtected";
 
 const Home = () => {
   return (

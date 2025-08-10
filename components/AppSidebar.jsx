@@ -11,6 +11,7 @@ import {
   DoorBack,
 } from "@mui/icons-material";
 import { useWindowSize } from "@uidotdev/usehooks";
+import { motion } from "framer-motion";;
 
 const sidebarContents = [
   {
@@ -54,13 +55,18 @@ const sidebarFooters = [
 ];
 
 const AppSidebar = () => {
-  const {width, height} = useWindowSize()
+  const { width } = useWindowSize();
   const pathName = usePathname();
-  console.log(width);
   return (
-    <nav className="h-fit lg:max-w-[275px] md:max-w-[80px] w-full max-w-screen min-w-[80px] gradientBlack md:rounded-tr-3xl md:rounded-br-3xl flex md:flex-col md:pt-8 flex-row md:relative fixed md:h-screen bottom-0 pt-2 z-9999999">
+    <motion.nav className="h-fit lg:max-w-[275px] md:max-w-[80px] w-full max-w-screen min-w-[80px] gradientBlack md:rounded-tr-3xl md:rounded-br-3xl flex md:flex-col md:pt-8 flex-row md:relative fixed md:h-screen bottom-0 pt-2 z-9999999" style={{
+      display: pathName === "/login" ? "none" : ""
+    }}>
       <div className="pl-4 pb-6  md:flex hidden">
-        <img src={width <= 1100 ? "/logo-mobile.svg" :"/logo.svg"} alt="" className="min-[1100px]:max-w-[120px] max-w-[25px]"/>
+        <img
+          src={width <= 1100 ? "/logo-mobile.svg" : "/logo.svg"}
+          alt=""
+          className="min-[1100px]:max-w-[120px] max-w-[25px]"
+        />
       </div>
       <div className="flex md:flex-col gap-2 flex-row md:w-fit w-full md:justify-baseline justify-around">
         {sidebarContents.map((i, idx) => {
@@ -75,7 +81,7 @@ const AppSidebar = () => {
               }`}
               style={{
                 color: pathName === i.url ? "" : "rgba(255, 255, 255, 0.8)",
-                transition: "all ease-in-out 250ms"
+                transition: "all ease-in-out 250ms",
               }}
             >
               {i.icon}
@@ -85,7 +91,7 @@ const AppSidebar = () => {
         })}
       </div>
       <div></div>
-    </nav>
+    </motion.nav>
   );
 };
 

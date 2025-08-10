@@ -6,7 +6,7 @@ const withProtected = (Pages) => {
     const user = useUser();
     const { uid } = user;
     if (!uid) {
-      router.replace("/signin");
+      router.replace("/login");
       return <></>;
     }
     return <Pages {...props} />;

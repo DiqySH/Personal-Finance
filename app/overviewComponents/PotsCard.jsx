@@ -68,7 +68,7 @@ const PotsCard = () => {
           </div>
         </div>
         <div className="flex-1/2 flex gap-2">
-          <div className="flex-1/2 flex flex-col justify-between gap-4">
+          <div className="flex-1/2 flex flex-col justify-between gap-6">
             {TOP_2_POT_DETAILS.map((i, idx) => {
               return (
                 <div key={idx} className="flex gap-3">
@@ -93,7 +93,7 @@ const PotsCard = () => {
               );
             })}
           </div>
-          <div className="flex-1/2 flex flex-col justify-between gap-4">
+          <div className="flex-1/2 flex flex-col justify-between gap-6">
             {LAST_2_POT_DETAILS.map((i, idx) => {
               return (
                 <div key={idx} className="flex gap-3">
